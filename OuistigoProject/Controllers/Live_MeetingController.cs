@@ -8,11 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using OuistigoProject.Models;
 
 namespace OuistigoProject.Controllers
 {
+    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
     public class Live_MeetingController : ApiController
     {
         private OuistigoProjectContext db = new OuistigoProjectContext();
