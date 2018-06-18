@@ -6,7 +6,6 @@ using System.Web;
 
 namespace OuistigoProject.Models
 {
-
     public class Learner
     {
         [Key]

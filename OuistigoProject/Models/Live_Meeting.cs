@@ -6,7 +6,6 @@ using System.Web;
 
 namespace OuistigoProject.Models
 {
-
     public class Live_Meeting
     {
         [Key]

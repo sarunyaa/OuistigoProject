@@ -6,9 +6,6 @@ using System.Web;
 
 namespace OuistigoProject.Models
 {
-
-
-
     public class Mark
     {
         [Key]
@@ -28,7 +25,5 @@ namespace OuistigoProject.Models
         public Learner IdLearner { get; set; }
         //foreign key
         public Module IdModule { get; set; }
-
-
     }
 }
