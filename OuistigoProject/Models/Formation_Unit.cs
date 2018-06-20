@@ -15,5 +15,6 @@ namespace OuistigoProject.Models
         //foreign key
         public User IdUser { get; set; }
 
+
     }
 }
