@@ -14,7 +14,7 @@ using OuistigoProject.Models;
 
 namespace OuistigoProject.Controllers
 {
-    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class Head_TeacherController : ApiController
     {
         private OuistigoProjectContext db = new OuistigoProjectContext();

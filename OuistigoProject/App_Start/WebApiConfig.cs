@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+//using Microsoft.AspNet.WebApi.Cors;
 
 namespace OuistigoProject
 {
@@ -20,7 +22,11 @@ namespace OuistigoProject
                    defaults: new { id = RouteParameter.Optional }
 
                );*/
-            config.EnableCors();
+          //  string origin = "http://localhost:8080";
+            
+          //  config.EnableCors();
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

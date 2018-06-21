@@ -14,29 +14,43 @@ using OuistigoProject.Models;
 
 namespace OuistigoProject.Controllers
 {
-    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UsersController : ApiController
     {
         private OuistigoProjectContext db = new OuistigoProjectContext();
 
         // GET: api/Users
+       // [HttpGet]
         public IQueryable<User> GetUsers()
         {
+
             return db.Users;
         }
+        
+        
 
-        // GET: api/Users/5
-        [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUser(int id)
+        //[ResponseType(typeof(User))]
+        [HttpGet, Route("/test")]
+        public async Task<IHttpActionResult> GetUsers (string param)
+
         {
-            User user = await db.Users.FindAsync(id);
+            if (param == "apprenant" || param=="tuteur" || param == "secretaire" || param == "secretariat" || param == "service formation continue")
+            {
+                var result = db.Users.Where(x => x.Role == param);
+                return Ok(result);
+            }
+
+            User user = await db.Users.FindAsync(param);
+
             if (user == null)
             {
                 return NotFound();
             }
-
             return Ok(user);
+
         }
+
+
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
