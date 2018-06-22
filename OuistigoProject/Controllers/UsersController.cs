@@ -49,7 +49,20 @@ namespace OuistigoProject.Controllers
             return Ok(user);
 
         }
+        [HttpGet, Route("/connexion")]
+        public async Task<IHttpActionResult> GetUsers(string login, string mdp)
 
+        {
+            var result = db.Users.Where(x => x.Id_connexion == login && x.Mdp==mdp);
+            
+            var test = "[]";
+            if (result.Equals(test))
+            {
+                return NotFound();
+               
+            }
+            return Ok(result);
+        }
 
 
         // PUT: api/Users/5
@@ -89,18 +102,39 @@ namespace OuistigoProject.Controllers
 
         // POST: api/Users
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> PostUser(User user)
+        public async Task<IHttpActionResult> PostUser(DAO.InscriptionObject Io)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            DateTime d = DateTime.Now;
+            Console.WriteLine(Io.Name+"test");
+            Console.WriteLine(Io.FirstName + "test2");
+            User user = new User
+            {
+                FirstName = Io.FirstName,
+                Id_connexion = Io.Id_connexion,
+                Mail_adress = Io.Mail_adress,
+                Name = Io.Name,
+                Phone_number = Io.Phone_number,
+                Role = Io.Role,
+                Statut_connexion = Io.Statut_connexion,
+                Date_last_connexion = d,
+                Time_last_connexion = d,
+                Mdp = Io.Mdp
+            };
+
             db.Users.Add(user);
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = user.IdUser }, user);
         }
+
+
+
+
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]

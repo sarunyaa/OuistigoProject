@@ -1,3 +1,4 @@
+
 namespace OuistigoProject.Migrations
 {
     using System;
@@ -26,9 +27,9 @@ namespace OuistigoProject.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Users.AddOrUpdate(
-                u => u.IdUser, new User { IdUser = 1, Id_connexion = "azerty@gmail.com", Name = "Azerty" })
-           ;
+        //    context.Users.AddOrUpdate(
+        //        u => u.IdUser, new User { IdUser = 1, Id_connexion = "azerty@gmail.com", Name = "Azerty" })
+        //   ;
         }
     }
 }

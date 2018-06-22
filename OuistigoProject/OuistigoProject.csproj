@@ -205,12 +205,17 @@
     <Compile Include="Controllers\SecretariatsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAO\InscriptionObject.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201806180202493_Initial.cs" />
     <Compile Include="Migrations\201806180202493_Initial.Designer.cs">
       <DependentUpon>201806180202493_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806221335157_2.cs" />
+    <Compile Include="Migrations\201806221335157_2.Designer.cs">
+      <DependentUpon>201806221335157_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Formation_Unit.cs" />
@@ -314,6 +319,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806180202493_Initial.resx">
       <DependentUpon>201806180202493_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806221335157_2.resx">
+      <DependentUpon>201806221335157_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
