@@ -53,10 +53,8 @@ namespace OuistigoProject.Controllers
         public async Task<IHttpActionResult> GetUsers(string login, string mdp)
 
         {
-            var result = db.Users.Where(x => x.Id_connexion == login && x.Mdp==mdp);
-            
-            var test = "[]";
-            if (result.Equals(test))
+            var result = db.Users.Where(x => x.Id_connexion == login && x.Mdp == mdp);
+            if (result == null)
             {
                 return NotFound();
                
