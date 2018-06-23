@@ -218,15 +218,11 @@
       <DependentUpon>201806221335157_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Formation_Unit.cs" />
-    <Compile Include="Models\Head_Teacher.cs" />
-    <Compile Include="Models\Learner.cs" />
     <Compile Include="Models\Live_Meeting.cs" />
-    <Compile Include="Models\Mark.cs" />
+    <Compile Include="Models\MeetingLearner.cs" />
+    <Compile Include="Models\ModuleLearner.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\OuistigoProjectContext.cs" />
-    <Compile Include="Models\Secretariat.cs" />
-    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

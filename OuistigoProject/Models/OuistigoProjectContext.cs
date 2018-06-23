@@ -19,22 +19,15 @@ namespace OuistigoProject.Models
         {
         }
 
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Formation_Unit> Formation_Unit { get; set; }
-
         public System.Data.Entity.DbSet<OuistigoProject.Models.User> Users { get; set; }
-
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Head_Teacher> Head_Teacher { get; set; }
-
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Learner> Learners { get; set; }
 
         public System.Data.Entity.DbSet<OuistigoProject.Models.Live_Meeting> Live_Meeting { get; set; }
 
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Mark> Marks { get; set; }
+        public System.Data.Entity.DbSet<OuistigoProject.Models.ModuleLearner> ModuleLearner { get; set; }
 
         public System.Data.Entity.DbSet<OuistigoProject.Models.Module> Modules { get; set; }
 
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Secretariat> Secretariats { get; set; }
+        public System.Data.Entity.DbSet<OuistigoProject.Models.MeetingLearner> MeetingLearner { get; set; }
 
-        public System.Data.Entity.DbSet<OuistigoProject.Models.Teacher> Teachers { get; set; }
     }
 }

@@ -8,15 +8,19 @@ namespace OuistigoProject.Models
 {
     public class Module
     {
+     
         [Key]
         public int IdModule { get; set; }
         [Required]
         public string Wording { get; set; }
         public string Year { get; set; }
         public string Semester { get; set; }
-        public ICollection<Learner> List_learner { get; set; }
+        //public ICollection<Learner> List_learner { get; set; }
         public DateTime Date_start { get; set; }
         public DateTime Date_end { get; set; }
         public DateTime Date_exam { get; set; }
+
+        //foreign key 
+        public User idTeacher { get; set; }
     }
 }
