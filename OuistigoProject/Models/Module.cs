@@ -21,6 +21,6 @@ namespace OuistigoProject.Models
         public DateTime Date_exam { get; set; }
 
         //foreign key 
-        public User idTeacher { get; set; }
+        public User idTeacherz { get; set; }
     }
 }

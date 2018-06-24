@@ -121,7 +121,18 @@ namespace OuistigoProject.Controllers
                 Statut_connexion = Io.Statut_connexion,
                 Date_last_connexion = d,
                 Time_last_connexion = d,
-                Mdp = Io.Mdp
+                Mdp = Io.Mdp,
+                Adresse_way_number = Io.Adresse_way_number,
+                Adresse_way_name = Io.Adresse_way_name,
+                Adresse_city = Io.Adresse_city,
+                Age = Io.Age,
+                Adresse_postal_code = Io.Adresse_postal_code,
+                Date_birth = d,
+                Date_inscription = d,
+                Date_interview = d,
+                Gender = Io.Gender,
+                Is_active = Io.Is_active,
+                State_payment = Io.State_payment            
             };
 
             db.Users.Add(user);

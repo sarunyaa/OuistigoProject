@@ -17,7 +17,7 @@ namespace OuistigoProject.Models
         public DateTime End_time { get; set; }
 
         //foreign key
-        public User IdTeacher { get; set; }
+        public User IdTeacherz { get; set; }
         //foreign key
         public Module IdModule { get; set; }
 

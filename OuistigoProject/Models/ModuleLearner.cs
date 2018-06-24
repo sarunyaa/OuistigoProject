@@ -8,6 +8,8 @@ namespace OuistigoProject.Models
 {
     public class ModuleLearner
     {
+        [Key]
+        public int IdModuleLearner { get; set; }
         public string Mark_test_1 { get; set; }
         public string Mark_test_2 { get; set; }
         public string Mark_test_3 { get; set; }

@@ -8,51 +8,49 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using OuistigoProject.Models;
 
 namespace OuistigoProject.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class TeachersController : ApiController
+    public class ModuleLearnersController : ApiController
     {
         private OuistigoProjectContext db = new OuistigoProjectContext();
 
-        // GET: api/Teachers
-        public IQueryable<Teacher> GetTeachers()
+        // GET: api/ModuleLearners
+        public IQueryable<ModuleLearner> GetModuleLearner()
         {
-            return db.Teachers;
+            return db.ModuleLearner;
         }
 
-        // GET: api/Teachers/5
-        [ResponseType(typeof(Teacher))]
-        public async Task<IHttpActionResult> GetTeacher(int id)
+        // GET: api/ModuleLearners/5
+        [ResponseType(typeof(ModuleLearner))]
+        public async Task<IHttpActionResult> GetModuleLearner(int id)
         {
-            Teacher teacher = await db.Teachers.FindAsync(id);
-            if (teacher == null)
+            ModuleLearner moduleLearner = await db.ModuleLearner.FindAsync(id);
+            if (moduleLearner == null)
             {
                 return NotFound();
             }
 
-            return Ok(teacher);
+            return Ok(moduleLearner);
         }
 
-        // PUT: api/Teachers/5
+        // PUT: api/ModuleLearners/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutTeacher(int id, Teacher teacher)
+        public async Task<IHttpActionResult> PutModuleLearner(int id, ModuleLearner moduleLearner)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != teacher.IdTeacher)
+            if (id != moduleLearner.IdModuleLearner)
             {
                 return BadRequest();
             }
 
-            db.Entry(teacher).State = EntityState.Modified;
+            db.Entry(moduleLearner).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +58,7 @@ namespace OuistigoProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TeacherExists(id))
+                if (!ModuleLearnerExists(id))
                 {
                     return NotFound();
                 }
@@ -73,35 +71,35 @@ namespace OuistigoProject.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Teachers
-        [ResponseType(typeof(Teacher))]
-        public async Task<IHttpActionResult> PostTeacher(Teacher teacher)
+        // POST: api/ModuleLearners
+        [ResponseType(typeof(ModuleLearner))]
+        public async Task<IHttpActionResult> PostModuleLearner(ModuleLearner moduleLearner)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Teachers.Add(teacher);
+            db.ModuleLearner.Add(moduleLearner);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = teacher.IdTeacher }, teacher);
+            return CreatedAtRoute("DefaultApi", new { id = moduleLearner.IdModuleLearner }, moduleLearner);
         }
 
-        // DELETE: api/Teachers/5
-        [ResponseType(typeof(Teacher))]
-        public async Task<IHttpActionResult> DeleteTeacher(int id)
+        // DELETE: api/ModuleLearners/5
+        [ResponseType(typeof(ModuleLearner))]
+        public async Task<IHttpActionResult> DeleteModuleLearner(int id)
         {
-            Teacher teacher = await db.Teachers.FindAsync(id);
-            if (teacher == null)
+            ModuleLearner moduleLearner = await db.ModuleLearner.FindAsync(id);
+            if (moduleLearner == null)
             {
                 return NotFound();
             }
 
-            db.Teachers.Remove(teacher);
+            db.ModuleLearner.Remove(moduleLearner);
             await db.SaveChangesAsync();
 
-            return Ok(teacher);
+            return Ok(moduleLearner);
         }
 
         protected override void Dispose(bool disposing)
@@ -113,9 +111,9 @@ namespace OuistigoProject.Controllers
             base.Dispose(disposing);
         }
 
-        private bool TeacherExists(int id)
+        private bool ModuleLearnerExists(int id)
         {
-            return db.Teachers.Count(e => e.IdTeacher == id) > 0;
+            return db.ModuleLearner.Count(e => e.IdModuleLearner == id) > 0;
         }
     }
 }

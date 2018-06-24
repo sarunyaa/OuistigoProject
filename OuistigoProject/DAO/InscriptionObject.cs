@@ -15,6 +15,15 @@ namespace OuistigoProject.DAO
         public string Mail_adress { get; set; }
         public string Phone_number { get; set; }
         public string Mdp { get; set; }
-    
+        public Boolean Is_active { get; set; }
+        public string Adresse_way_number { get; set; }
+        public string Adresse_way_name { get; set; }
+        public string Adresse_city { get; set; }
+        public string Adresse_postal_code { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string State_payment { get; set; }
+
+
     }
 }

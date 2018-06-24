@@ -195,15 +195,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\Formation_UnitController.cs" />
-    <Compile Include="Controllers\Head_TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LearnersController.cs" />
     <Compile Include="Controllers\Live_MeetingController.cs" />
-    <Compile Include="Controllers\MarksController.cs" />
+    <Compile Include="Controllers\ModuleLearnersController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
-    <Compile Include="Controllers\SecretariatsController.cs" />
-    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAO\InscriptionObject.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,9 +208,9 @@
     <Compile Include="Migrations\201806180202493_Initial.Designer.cs">
       <DependentUpon>201806180202493_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806221335157_2.cs" />
-    <Compile Include="Migrations\201806221335157_2.Designer.cs">
-      <DependentUpon>201806221335157_2.cs</DependentUpon>
+    <Compile Include="Migrations\201806232338509_6.cs" />
+    <Compile Include="Migrations\201806232338509_6.Designer.cs">
+      <DependentUpon>201806232338509_6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Live_Meeting.cs" />
@@ -316,8 +311,8 @@
     <EmbeddedResource Include="Migrations\201806180202493_Initial.resx">
       <DependentUpon>201806180202493_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806221335157_2.resx">
-      <DependentUpon>201806221335157_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806232338509_6.resx">
+      <DependentUpon>201806232338509_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
