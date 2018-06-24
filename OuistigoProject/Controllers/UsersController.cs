@@ -23,12 +23,9 @@ namespace OuistigoProject.Controllers
        // [HttpGet]
         public IQueryable<User> GetUsers()
         {
-
             return db.Users;
         }
         
-        
-
         //[ResponseType(typeof(User))]
         [HttpGet, Route("/test")]
         public async Task<IHttpActionResult> GetUsers (string param)
@@ -140,10 +137,6 @@ namespace OuistigoProject.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = user.IdUser }, user);
         }
-
-
-
-
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
