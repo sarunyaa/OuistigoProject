@@ -11,7 +11,8 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using OuistigoProject.Models;
-
+using System.Security.Cryptography;
+using System.Text;
 namespace OuistigoProject.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -50,7 +51,25 @@ namespace OuistigoProject.Controllers
         public async Task<IHttpActionResult> GetUsers(string login, string mdp)
 
         {
-            var result = db.Users.Where(x => x.Id_connexion == login && x.Mdp == mdp);
+            // cryptage mdp en md5 
+		
+		// creation de md5
+		MD5 md5Hasher = MD5.Create();
+		
+		// Convertion du mdp string en byte .
+        byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(mdp));
+		
+		 //creation d'un constructeur de string.
+        StringBuilder sBuilder = new StringBuilder();
+		
+		// creation d'une chaine du mdp crypté
+		 for (int i = 0; i < data.Length; i++)
+        {
+            sBuilder.Append(data[i].ToString("x2"));
+        }
+		// on cree une variable 
+		string mdpcrypt= sBuilder.ToString();
+            var result = db.Users.Where(x => x.Id_connexion == login && x.Mdp == mdpcrypt);
             if (result == null)
             {
                 return NotFound();
@@ -131,7 +150,24 @@ namespace OuistigoProject.Controllers
                 Is_active = Io.Is_active,
                 State_payment = Io.State_payment            
             };
-
+            // cryptage mdp en md5 
+		
+		// creation de md5
+		MD5 md5Hasher = MD5.Create();
+		
+		// Convertion du mdp string en byte .
+        byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(user.Mdp));
+		
+		 //creation d'un constructeur de string.
+        StringBuilder sBuilder = new StringBuilder();
+		
+		// creation d'une chaine du mdp crypté
+		 for (int i = 0; i < data.Length; i++)
+        {
+            sBuilder.Append(data[i].ToString("x2"));
+        }
+		// on cree une variable 
+		user.Mdp= sBuilder.ToString();
             db.Users.Add(user);
             await db.SaveChangesAsync();
 
