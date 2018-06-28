@@ -79,7 +79,7 @@ namespace OuistigoProject.Controllers
             return Ok(result);
         }
         [HttpGet, Route("/getuser")]
-        public async Task<IHttpActionResult> GetUsers(int id)
+        public async Task<IHttpActionResult> GetOneUser(int id)
 
         {
             var result = db.Users.Where(x => x.IdUser == id);

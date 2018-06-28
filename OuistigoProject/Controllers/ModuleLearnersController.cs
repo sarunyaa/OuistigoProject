@@ -22,10 +22,23 @@ namespace OuistigoProject.Controllers
         {
             return db.ModuleLearner;
         }
+        [HttpGet, Route("/getLearner")]
+        public async Task<IHttpActionResult> GetModuleLearner(int idModule)
+
+        {
+            var result = db.ModuleLearner.Where(x => x.IdModule == idModule);
+            if (result == null)
+            {
+
+                return NotFound();
+
+            }
+            return Ok(result);
+        }
 
         // GET: api/ModuleLearners/5
-        [ResponseType(typeof(ModuleLearner))]
-        public async Task<IHttpActionResult> GetModuleLearner(int id)
+        //[ResponseType(typeof(ModuleLearner))]
+        /**public async Task<IHttpActionResult> GetModuleLearner(int id)
         {
             ModuleLearner moduleLearner = await db.ModuleLearner.FindAsync(id);
             if (moduleLearner == null)
@@ -34,7 +47,7 @@ namespace OuistigoProject.Controllers
             }
 
             return Ok(moduleLearner);
-        }
+        }**/
 
         // PUT: api/ModuleLearners/5
         [ResponseType(typeof(void))]
@@ -73,17 +86,23 @@ namespace OuistigoProject.Controllers
 
         // POST: api/ModuleLearners
         [ResponseType(typeof(ModuleLearner))]
-        public async Task<IHttpActionResult> PostModuleLearner(ModuleLearner moduleLearner)
+        public async Task<IHttpActionResult> PostModuleLearner(DAO.ModuleLearnerObject moduleLearner)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.ModuleLearner.Add(moduleLearner);
+            
+       
+            ModuleLearner ml = new ModuleLearner
+            {
+                IdLearner = moduleLearner.IdLearner,
+                IdModule = moduleLearner.IdModule
+            };
+            db.ModuleLearner.Add(ml);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = moduleLearner.IdModuleLearner }, moduleLearner);
+            return CreatedAtRoute("DefaultApi", new { id = ml.IdModuleLearner }, ml);
         }
 
         // DELETE: api/ModuleLearners/5

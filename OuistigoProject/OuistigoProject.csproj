@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ModuleLearnersController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAO\ModuleLearnerObject.cs" />
     <Compile Include="DAO\InscriptionObject.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\201806240803384_7.cs" />
     <Compile Include="Migrations\201806240803384_7.Designer.cs">
       <DependentUpon>201806240803384_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806272250024_9.cs" />
+    <Compile Include="Migrations\201806272250024_9.Designer.cs">
+      <DependentUpon>201806272250024_9.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Live_Meeting.cs" />
@@ -325,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806240803384_7.resx">
       <DependentUpon>201806240803384_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806272250024_9.resx">
+      <DependentUpon>201806272250024_9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
